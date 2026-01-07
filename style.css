@@ -1,0 +1,11 @@
+        .icon-link svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-dark);
+            opacity: 0.5;
+            transition: opacity 0.3s, color 0.3s;
+        }
+        .icon-link:hover svg {
+            opacity: 1;
+            color: var(--accent-terra);
+        }
