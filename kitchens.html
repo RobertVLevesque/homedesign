@@ -10,7 +10,141 @@
         /* INCLUDE ROOT CSS VARIABLES & RESET HERE */
         /* INCLUDE SIDEBAR CSS HERE */
         
-        .contact-container {
+        .contact-container {<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Home Solutions | Kitchens</title>
+    <!-- Keep the same CSS links and variables as index.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* PASTE THE EXACT SAME CSS FROM INDEX.HTML HERE */
+        /* INCLUDE THE VARIABLES AND RESET */
+        :root {
+            --bg-cream: #FDFBF7;
+            --text-dark: #2C362B;
+            --accent-terra: #C67C64;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Outfit', sans-serif;
+            --sidebar-width: 120px;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
+        body { background-color: var(--bg-cream); color: var(--text-dark); font-family: var(--font-body); }
+        
+        /* ... (Include Cursor, Nav, Sidebar CSS from index.html) ... */
+
+        /* --- GALLERY SPECIFIC CSS --- */
+        .gallery-container {
+            margin-left: var(--sidebar-width);
+            padding: 8rem 4rem;
+        }
+
+        .gallery-header {
+            margin-bottom: 6rem;
+            text-align: center;
+        }
+
+        .gallery-header h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 500px; /* Uniform height for cleanliness */
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .g-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(20%);
+        }
+
+        .gallery-item:hover .g-img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .g-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .g-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Fix */
+        @media (max-width: 768px) {
+            .gallery-container { margin-left: 60px; padding: 4rem 2rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Insert Cursor & Sidebar HTML here (Same as Index) -->
+
+    <main class="gallery-container">
+        <div class="gallery-header">
+            <h1>Kitchens</h1>
+            <p>Where culinary function meets family tradition.</p>
+        </div>
+
+        <div class="gallery-grid">
+            
+            <!-- Image 1 -->
+            <div class="gallery-item hover-trigger">
+                <!-- Replace src with your kitchen photo -->
+                <img src="kitchen.jpg" class="g-img" alt="Kitchen 1">
+                <div class="g-overlay">
+                    <h3>The Glebe Project</h3>
+                    <p>Open Concept Transition</p>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="gallery-item hover-trigger">
+                <img src="https://images.unsplash.com/photo-1556912173-3db9963f6bee?q=80&w=2000" class="g-img" alt="Kitchen 2">
+                <div class="g-overlay">
+                    <h3>Westboro Modern</h3>
+                    <p>Custom Walnut Millwork</p>
+                </div>
+            </div>
+
+            <!-- Add more items as needed -->
+
+        </div>
+    </main>
+
+    <!-- Insert Cursor Script here -->
+</body>
+</html>
             margin-left: 120px;
             min-height: 100vh;
             display: flex;
