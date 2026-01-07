@@ -230,13 +230,28 @@
         }
 
         /* --- MOBILE ADJUSTMENTS --- */
-        @media (max-width: 768px) {
-            .static-sidebar { width: 60px; }
-            .image-stage, .scroller { margin-left: 60px; width: calc(100% - 60px); }
-            section { padding: 2rem; }
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2rem; }
-            .detail-section { align-items: flex-start; text-align: left; }
+/* --- MOBILE CURSOR FIX --- */
+        @media (max-width: 1024px) {
+            /* 1. Hide the custom circle element */
+            .cursor {
+                display: none !important;
+            }
+
+            /* 2. Bring back the default system interaction */
+            * {
+                cursor: auto !important;
+            }
+
+            /* 3. Stop hover effects from getting "stuck" after you tap */
+            .hover-trigger:hover, 
+            .icon-link:hover svg,
+            button:hover,
+            .nav-link:hover {
+                /* Reset to default state on mobile */
+                transform: none !important;
+                color: inherit; 
+                opacity: 1;
+            }
         }
 
     </style>
