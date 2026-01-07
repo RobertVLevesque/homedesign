@@ -231,26 +231,72 @@
 
         /* --- MOBILE ADJUSTMENTS --- */
 /* --- MOBILE CURSOR FIX --- */
-        @media (max-width: 1024px) {
-            /* 1. Hide the custom circle element */
-            .cursor {
-                display: none !important;
+/* --- MOBILE OPTIMIZATION & WIGGLE FIX --- */
+        @media (max-width: 900px) {
+            
+            /* 1. LOCK THE SCREEN WIDTH (Stops the finger drag wiggle) */
+            html, body {
+                width: 100%;
+                overflow-x: hidden;
+                position: relative;
             }
 
-            /* 2. Bring back the default system interaction */
-            * {
-                cursor: auto !important;
+            /* 2. SHRINK SIDEBAR & ADJUST CONTENT WIDTH */
+            :root {
+                --sidebar-width: 60px; /* Make sidebar smaller on mobile */
             }
 
-            /* 3. Stop hover effects from getting "stuck" after you tap */
-            .hover-trigger:hover, 
-            .icon-link:hover svg,
-            button:hover,
-            .nav-link:hover {
-                /* Reset to default state on mobile */
-                transform: none !important;
-                color: inherit; 
-                opacity: 1;
+            .static-sidebar { 
+                width: var(--sidebar-width); 
+                padding: 1rem 0;
+            }
+
+            /* Adjust content area to fit next to sidebar */
+            .image-stage, .scroller, .gallery-container, .contact-container { 
+                margin-left: var(--sidebar-width); 
+                width: calc(100% - var(--sidebar-width)); 
+            }
+
+            /* 3. RESIZE TEXT (Fluid typography) */
+            section { 
+                padding: 4rem 1.5rem; /* Less padding so text has room */
+                min-height: 80vh; /* Shorter sections on mobile */
+            }
+
+            h1 { 
+                font-size: 2.5rem; /* Was 5rem - much smaller now */
+                word-wrap: break-word; /* Prevents long words breaking layout */
+                hyphens: auto;
+            }
+
+            h2 { 
+                font-size: 2rem; 
+            }
+
+            p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            /* 4. FIX NAVIGATION */
+            .floating-nav {
+                top: 1rem;
+                right: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+                background: rgba(0,0,0,0.3); /* Legibility on top of images */
+                border-radius: 4px;
+            }
+            
+            /* 5. FIX ALIGNMENT */
+            /* Force text to align left on mobile for readability */
+            .detail-section, .center-section, .intro-section {
+                align-items: flex-start;
+                text-align: left;
             }
         }
 
@@ -350,7 +396,7 @@
             <p>Extend your living space beyond four walls. We design decks and patios built for Canadian summers.</p>
             <br>
             <a href="exteriors.html" style="text-decoration: none;">
-                <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-terra);" class="hover-trigger">Explore Decks &rarr;</p>
+                <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-terra);" class="hover-trigger">Explore Exteriors &rarr;</p>
             </a>
         </section>
         <!-- SECTION 4: CONCLUSION -->
